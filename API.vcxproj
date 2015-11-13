@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FB367E14-8E68-4B30-86AD-517C3B5D4A20}</ProjectGuid>
+    <RootNamespace>API</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetExt>.dll</TargetExt>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetExt>.dll</TargetExt>
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>as-cpp</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(AS_HOME)\include\c</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NO_STD_MUTEX;NO_STD_SHARED_PTR;_WINDOWS</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(AS_HOME)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>as-core.lib;as-common.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(AS_HOME)\include\c</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NO_STD_MUTEX;NO_STD_SHARED_PTR;_WINDOWS</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(AS_HOME)\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>as-core.lib;as-common.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(AS_HOME)\include\c</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NO_STD_MUTEX;NO_STD_SHARED_PTR;_WINDOWS</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>as-core.lib;as-common.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(AS_HOME)\include\c</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NO_STD_MUTEX;NO_STD_SHARED_PTR;_WINDOWS</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>as-core.lib;as-common.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Action.cpp" />
+    <ClCompile Include="src\ActionResult.cpp" />
+    <ClCompile Include="src\Admin.cpp" />
+    <ClCompile Include="src\AlterAction.cpp" />
+    <ClCompile Include="src\AuthenticationCallback.cpp" />
+    <ClCompile Include="src\AuthenticationInfo.cpp" />
+    <ClCompile Include="src\Browser.cpp" />
+    <ClCompile Include="src\BrowserDef.cpp" />
+    <ClCompile Include="src\CloseAction.cpp" />
+    <ClCompile Include="src\Common.cpp" />
+    <ClCompile Include="src\EventBrowser.cpp" />
+    <ClCompile Include="src\EventBrowserDef.cpp" />
+    <ClCompile Include="src\EvictEvent.cpp" />
+    <ClCompile Include="src\Exception.cpp" />
+    <ClCompile Include="src\ExpireEvent.cpp" />
+    <ClCompile Include="src\FieldDef.cpp" />
+    <ClCompile Include="src\FieldDefList.cpp" />
+    <ClCompile Include="src\Filter.cpp" />
+    <ClCompile Include="src\GetOptions.cpp" />
+    <ClCompile Include="src\IndexDef.cpp" />
+    <ClCompile Include="src\Invocable.cpp" />
+    <ClCompile Include="src\InvokeOptions.cpp" />
+    <ClCompile Include="src\InvokeResult.cpp" />
+    <ClCompile Include="src\InvokeResultList.cpp" />
+    <ClCompile Include="src\KeyDef.cpp" />
+    <ClCompile Include="src\Listener.cpp" />
+    <ClCompile Include="src\ListenerDef.cpp" />
+    <ClCompile Include="src\LoadAction.cpp" />
+    <ClCompile Include="src\LockOptions.cpp" />
+    <ClCompile Include="src\Member.cpp" />
+    <ClCompile Include="src\MemberDef.cpp" />
+    <ClCompile Include="src\MemberInvocable.cpp" />
+    <ClCompile Include="src\Metaspace.cpp" />
+    <ClCompile Include="src\MetaspaceMemberListener.cpp" />
+    <ClCompile Include="src\MetaspaceRemoteMemberListener.cpp" />
+    <ClCompile Include="src\Mutex.cpp" />
+    <ClCompile Include="src\OpenAction.cpp" />
+    <ClCompile Include="src\Persister.cpp" />
+    <ClCompile Include="src\PutEvent.cpp" />
+    <ClCompile Include="src\PutOp.cpp" />
+    <ClCompile Include="src\PutOptions.cpp" />
+    <ClCompile Include="src\ReadAction.cpp" />
+    <ClCompile Include="src\RecoveryOptions.cpp" />
+    <ClCompile Include="src\Result.cpp" />
+    <ClCompile Include="src\ResultList.cpp" />
+    <ClCompile Include="src\Router.cpp" />
+    <ClCompile Include="src\SeedEvent.cpp" />
+    <ClCompile Include="src\Space.cpp" />
+    <ClCompile Include="src\SpaceDef.cpp" />
+    <ClCompile Include="src\SpaceDefListener.cpp" />
+    <ClCompile Include="src\SpaceEvent.cpp" />
+    <ClCompile Include="src\SpaceMemberListener.cpp" />
+    <ClCompile Include="src\SpaceRemoteMemberListener.cpp" />
+    <ClCompile Include="src\SpaceResult.cpp" />
+    <ClCompile Include="src\SpaceResultHandler.cpp" />
+    <ClCompile Include="src\SpaceResultList.cpp" />
+    <ClCompile Include="src\SpaceStateListener.cpp" />
+    <ClCompile Include="src\TakeEvent.cpp" />
+    <ClCompile Include="src\TakeOp.cpp" />
+    <ClCompile Include="src\TakeOptions.cpp" />
+    <ClCompile Include="src\Tuple.cpp" />
+    <ClCompile Include="src\UnlockOptions.cpp" />
+    <ClCompile Include="src\UnseedEvent.cpp" />
+    <ClCompile Include="src\Utils.cpp" />
+    <ClCompile Include="src\WriteAction.cpp" />
+    <ClCompile Include="src\WriteOp.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Action.h" />
+    <ClInclude Include="src\ActionResult.h" />
+    <ClInclude Include="src\Admin.h" />
+    <ClInclude Include="src\AlterAction.h" />
+    <ClInclude Include="src\AuthenticationCallback.h" />
+    <ClInclude Include="src\AuthenticationInfo.h" />
+    <ClInclude Include="src\Browser.h" />
+    <ClInclude Include="src\BrowserDef.h" />
+    <ClInclude Include="src\CloseAction.h" />
+    <ClInclude Include="src\Common.h" />
+    <ClInclude Include="src\EventBrowser.h" />
+    <ClInclude Include="src\EventBrowserDef.h" />
+    <ClInclude Include="src\EvictEvent.h" />
+    <ClInclude Include="src\Exception.h" />
+    <ClInclude Include="src\ExpireEvent.h" />
+    <ClInclude Include="src\FieldDef.h" />
+    <ClInclude Include="src\FieldDefList.h" />
+    <ClInclude Include="src\Filter.h" />
+    <ClInclude Include="src\GetOptions.h" />
+    <ClInclude Include="src\IndexDef.h" />
+    <ClInclude Include="src\Invocable.h" />
+    <ClInclude Include="src\InvokeOptions.h" />
+    <ClInclude Include="src\InvokeResult.h" />
+    <ClInclude Include="src\InvokeResultList.h" />
+    <ClInclude Include="src\KeyDef.h" />
+    <ClInclude Include="src\Listener.h" />
+    <ClInclude Include="src\ListenerBase.h" />
+    <ClInclude Include="src\ListenerDef.h" />
+    <ClInclude Include="src\ListenerTemplate.h" />
+    <ClInclude Include="src\LoadAction.h" />
+    <ClInclude Include="src\LockOptions.h" />
+    <ClInclude Include="src\Member.h" />
+    <ClInclude Include="src\MemberDef.h" />
+    <ClInclude Include="src\MemberInvocable.h" />
+    <ClInclude Include="src\Metaspace.h" />
+    <ClInclude Include="src\MetaspaceMemberListener.h" />
+    <ClInclude Include="src\MetaspaceRemoteMemberListener.h" />
+    <ClInclude Include="src\Mutex.h" />
+    <ClInclude Include="src\OpenAction.h" />
+    <ClInclude Include="src\Persister.h" />
+    <ClInclude Include="src\PutEvent.h" />
+    <ClInclude Include="src\PutOp.h" />
+    <ClInclude Include="src\PutOptions.h" />
+    <ClInclude Include="src\ReadAction.h" />
+    <ClInclude Include="src\RecoveryOptions.h" />
+    <ClInclude Include="src\Result.h" />
+    <ClInclude Include="src\ResultList.h" />
+    <ClInclude Include="src\Router.h" />
+    <ClInclude Include="src\SeedEvent.h" />
+    <ClInclude Include="src\SharedPtr.h" />
+    <ClInclude Include="src\Space.h" />
+    <ClInclude Include="src\SpaceDef.h" />
+    <ClInclude Include="src\SpaceDefListener.h" />
+    <ClInclude Include="src\SpaceEvent.h" />
+    <ClInclude Include="src\SpaceMemberListener.h" />
+    <ClInclude Include="src\SpaceOptions.h" />
+    <ClInclude Include="src\SpaceRemoteMemberListener.h" />
+    <ClInclude Include="src\SpaceResult.h" />
+    <ClInclude Include="src\SpaceResultHandler.h" />
+    <ClInclude Include="src\SpaceResultList.h" />
+    <ClInclude Include="src\SpaceStateListener.h" />
+    <ClInclude Include="src\TakeEvent.h" />
+    <ClInclude Include="src\TakeOp.h" />
+    <ClInclude Include="src\TakeOptions.h" />
+    <ClInclude Include="src\Tuple.h" />
+    <ClInclude Include="src\Types.h" />
+    <ClInclude Include="src\UnlockOptions.h" />
+    <ClInclude Include="src\UnseedEvent.h" />
+    <ClInclude Include="src\Utils.h" />
+    <ClInclude Include="src\WriteAction.h" />
+    <ClInclude Include="src\WriteOp.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

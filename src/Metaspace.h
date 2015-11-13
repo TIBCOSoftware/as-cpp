@@ -126,7 +126,6 @@ namespace ASApi
         
         SharedPtr<tibasMetaspace> m_metaspace;
         SharedPtr<AuthenticationCallback> m_authCb;
-        std::string m_metaspaceName;
 
         MemberDef m_memberDef;
     };

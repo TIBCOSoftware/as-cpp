@@ -10,7 +10,7 @@ To install the c++ API, see instructions below. **Important** you can download t
 git clone https://github.com/TIBCOSoftware/as-cpp.git
 ```
 
-## Linux compile
+###Linux compile
 After cloning, go to the repo
 
 ```
@@ -19,14 +19,15 @@ After cloning, go to the repo
  $ make -j4
 ```
 
-##Windows compile
-
+###Windows compile
 ```
 define AS_HOME in environment variables
 Open visual studio project (Visual studio 2013 or later) 
 Compile the project producing the Debug/Release version of C++ api
 ```
+Windows gives warning about classes in the std namespace. These can be ignored. 
 
+###Using the library files
 The c++ library files will be produced that can be used by clients applications
 
 - Linux make sure LD_LIBRARY_PATH includes reference to as-cpp\lib folder

@@ -1,0 +1,10 @@
+#include <mutex>
+
+template<typename T> using LockGuard = std::lock_guard<T>;
+
+int main(int argc, char** args)
+{
+    std::mutex mutex;
+    LockGuard<std::mutex> lock (mutex);
+    return 0;
+}

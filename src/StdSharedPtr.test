@@ -1,0 +1,7 @@
+#include <memory>
+
+int main(int argc, char** args)
+{
+    std::shared_ptr<int> sharedInt;
+    return 0;
+}

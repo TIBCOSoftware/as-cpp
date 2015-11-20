@@ -31,5 +31,5 @@ Windows gives warning about classes in the std namespace. These can be ignored.
 The c++ library files will be produced that can be used by clients applications
 
 - Linux make sure LD_LIBRARY_PATH includes reference to as-cpp\lib folder
-- Windows make sure Visual Studio project refers to {Debug|Release}\x64 location
+- Windows make sure Visual Studio project refers to x64/{Debug|Release} location
 

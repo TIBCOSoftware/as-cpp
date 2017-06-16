@@ -258,6 +258,27 @@ SpaceResultList Space::compareAndTakeAll(const vector<Tuple>& oldValueList, cons
     return SpaceResultList(results);
 }
 
+Tuple Space::update(const Tuple& keyTuple, const Tuple& tuple)
+{
+    SharedPtr<tibasTuple> oldTuple (new tibasTuple(), Deleter<tibasTuple>(tibasTuple_Free));
+    AS_CALL(tibasSpace_UpdateKey(get(), oldTuple.get(), keyTuple.get(), tuple.get()));
+    return Tuple(oldTuple);
+}
+
+Tuple Space::update(const Tuple& keyTuple, const Tuple& tuple, const PutOptions& putOptions)
+{
+    if (putOptions.get().closure != NULL)
+        putOptions.get().resultHandler = (void*)SpaceResultHandler::onCComplete;
+    
+    SharedPtr<tibasTuple> oldTuple (new tibasTuple(), Deleter<tibasTuple>(tibasTuple_Free));
+    AS_CALL(tibasSpace_UpdateKeyEx(get(), oldTuple.get(), keyTuple.get(), tuple.get(), putOptions.get()));
+    return Tuple(oldTuple);
+}
+
+void Space::update(const string& filter)
+{
+    AS_CALL(tibasSpace_UpdateTuples(get(), filter.c_str()));
+}
 
 void Space::load(const Tuple& newValue)
 {
@@ -411,6 +432,13 @@ void Space::unlock(const Tuple& key, const UnlockOptions unlockOptions) const
     AS_CALL(tibasSpace_UnlockEx(get(), key.get(), unlockOptions.get())); 
 }
 
+SpaceResultList Space::unlockAll(const vector<Tuple>& keyList) const
+{
+    SharedPtr<tibasSpaceResultList> results(new tibasSpaceResultList(), Deleter<tibasSpaceResultList>(tibasSpaceResultList_Free));
+    SharedPtr<tibasTupleList> tupleList = ASApi::tuplesToAsTupleList(keyList);
+    AS_CALL(tibasSpace_UnlockAll(get(), results.get(), *tupleList));
+    return SpaceResultList(results);
+}
 
 Browser Space::browse(const BrowserType& browserType, const BrowserDef& browserDef, const string& filter) const
 {
@@ -447,6 +475,13 @@ SpaceResultList Space::getAll(const vector<Tuple>& keyList) const
     return SpaceResultList(results);
 }
 
+SpaceResultList Space::getAll(const vector<Tuple>& keyList, const GetOptions& getOptions) const
+{
+    SharedPtr<tibasSpaceResultList> results(new tibasSpaceResultList(), Deleter<tibasSpaceResultList>(tibasSpaceResultList_Free));
+    SharedPtr<tibasTupleList> tupleList = ASApi::tuplesToAsTupleList(keyList);
+    AS_CALL(tibasSpace_GetAllEx(get(), results.get(), *tupleList, getOptions.get()));
+    return SpaceResultList(results);
+}
 
 void Space::listen(Listener& listener, const ListenerDef& listenerDef, const string& filter)
 {

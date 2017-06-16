@@ -32,6 +32,8 @@ namespace ASApi
     protected:
         SpaceOptions(Initializer init);
 
+        SpaceOptions(Initializer init, const Deleter<tibasType>& deleter);
+
         SharedPtr<tibasType> m_options;
     };
     
@@ -42,6 +44,13 @@ namespace ASApi
         (*init)(m_options.get());
     }
     
+    template <typename OptionsType, typename tibasType>
+    SpaceOptions<OptionsType, tibasType>::SpaceOptions(Initializer init, const Deleter<tibasType>& deleter)
+    : m_options(new tibasType(), deleter)
+    {
+        (*init)(m_options.get());
+    }
+
     template <typename OptionsType, typename tibasType>
     SpaceOptions<OptionsType, tibasType>::~SpaceOptions()
     {

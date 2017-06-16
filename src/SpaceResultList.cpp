@@ -47,9 +47,9 @@ Exception SpaceResultList::getError(int index) const
 
 Status SpaceResultList::getStatus(int index) const
 {
-    Status status = TIBAS_OK;
-    AS_CALL(tibasSpaceResultList_GetStatus(*m_spaceResultList, &status, index));
-    return status;
+    Status retStatus = TIBAS_OK;
+    AS_CALL(tibasSpaceResultList_GetStatus(*m_spaceResultList, &retStatus, index));
+    return retStatus;
 }
 
 

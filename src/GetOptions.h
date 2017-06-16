@@ -18,6 +18,12 @@ namespace ASApi
     public:
         GetOptions();
 
+        GetOptions& setFilter(const std::string& filter);
+        std::string getFilter() const;
+
+        GetOptions& setFields(int numFields, ...);
+        GetOptions& setFields(const std::vector<std::string>& fields);
+        std::vector<std::string> getFields() const;
     };    
 }
 

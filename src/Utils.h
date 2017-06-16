@@ -21,6 +21,8 @@ namespace ASApi
 {
     typedef tibas_status Status;
  
+    tibasStringList vectorToStringList(const std::vector<std::string>& strings);
+
     std::vector<std::string> asStringListToVector(const tibasStringList& stringList);
     
     SharedPtr<tibasTupleList> tuplesToAsTupleList(const std::vector<Tuple>& tuples);

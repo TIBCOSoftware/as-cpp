@@ -121,4 +121,15 @@ bool TakeOptions::isRoute() const
     }
 }
 
+TakeOptions&
+TakeOptions::setFilter(const std::string& filter)
+{
+    m_options->filter = filter.c_str();
+    return *this;
+}
 
+std::string
+TakeOptions::getFilter() const
+{
+    return m_options->filter;
+}

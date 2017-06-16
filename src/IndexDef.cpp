@@ -16,16 +16,13 @@ using namespace std;
 IndexDef::IndexDef()
 : m_indexDef(new tibasIndexDef(), Deleter<tibasIndexDef>(tibasIndexDef_Free))
 {
-    //Create
+    AS_CALL(tibasIndexDef_Create(m_indexDef.get(), "", ""));
 }
 
-IndexDef::IndexDef(string& indexName, string& fieldNames)
+IndexDef::IndexDef(const string& indexName, const string& fieldNames)
 : m_indexDef(new tibasIndexDef(), Deleter<tibasIndexDef>(tibasIndexDef_Free))
 {
-    //Create
-    char* indexName_c = const_cast<char*>(indexName.c_str());
-    char* fieldNames_c = const_cast<char*>(fieldNames.c_str());
-    AS_CALL(tibasIndexDef_Create(m_indexDef.get(), indexName_c, fieldNames_c));
+    AS_CALL(tibasIndexDef_Create(m_indexDef.get(), indexName.c_str(), fieldNames.c_str()));
 }
 
 IndexDef::~IndexDef()

@@ -59,6 +59,19 @@ string MemberDef::getMemberName() const
     return name;
 }
 
+MemberDef& MemberDef::setProcessName(const string& name)
+{
+    AS_CALL(tibasMemberDef_SetProcessName(get(), name.c_str()));
+    return *this;
+}
+
+
+string MemberDef::getProcessName() const
+{
+    const char* name = NULL;
+    AS_CALL(tibasMemberDef_GetProcessName(get(), &name));
+    return name;
+}
 
 MemberDef& MemberDef::setDataStore(const string& dataStor)
 {
@@ -257,7 +270,7 @@ string MemberDef::getIdentityPassword() const
 
 MemberDef& MemberDef::setAuthenticationCallback(SharedPtr<AuthenticationCallback> &authCb)
 {
-    AS_CALL(tibasMemberDef_SetAuthenticationCallback(get(), AuthenticationCallback::callback, (void*)authCb.get()))
+    AS_CALL(tibasMemberDef_SetAuthenticationCallback(get(), AuthenticationCallback::callback, (void*)authCb.get()));
     m_authCb = authCb;
     return *this;
 }

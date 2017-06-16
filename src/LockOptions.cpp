@@ -52,3 +52,15 @@ bool LockOptions::isForget() const
     }
 }
 
+LockOptions&
+LockOptions::setFilter(const std::string& filter)
+{
+    m_options->filter = filter.c_str();
+    return *this;
+}
+
+std::string
+LockOptions::getFilter() const
+{
+    return m_options->filter;
+}

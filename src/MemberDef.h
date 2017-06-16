@@ -31,6 +31,10 @@ namespace ASApi
 
         std::string getMemberName() const;
 
+        MemberDef& setProcessName(const std::string& name);
+
+        std::string getProcessName() const;
+
         MemberDef& setDataStore(const std::string& dataStor);
 
         std::string getDataStore() const;

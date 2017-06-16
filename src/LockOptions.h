@@ -30,7 +30,10 @@ namespace ASApi
 
         bool isForget() const;
 
-    };    
+        LockOptions& setFilter(const std::string& filter);
+        
+        std::string getFilter() const;
+    };
 }
 
 #endif

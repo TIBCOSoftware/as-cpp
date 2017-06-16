@@ -38,7 +38,10 @@ namespace ASApi
 
         bool isRoute() const;
 
-    };    
+        TakeOptions& setFilter(const std::string& filter);
+        
+        std::string getFilter() const;
+    };
 }
 
 #endif

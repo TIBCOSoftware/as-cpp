@@ -38,7 +38,9 @@ namespace ASApi
 
         long long getTTL();
 
-
+        PutOptions& setFilter(const std::string& filter);
+        
+        std::string getFilter() const;
     };    
 }
 

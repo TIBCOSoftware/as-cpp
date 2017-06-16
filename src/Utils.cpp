@@ -12,6 +12,18 @@
 using namespace ASApi;
 using namespace std;
 
+tibasStringList
+ASApi::vectorToStringList(const vector<string>& strings)
+{
+    tibasStringList stringList;
+    tibasStringList_Create(&stringList);
+    for (vector<string>::const_iterator iter = strings.begin(); iter != strings.end(); ++iter)
+    {
+        tibasStringList_Put(stringList, iter->c_str());
+    }
+    return stringList;
+}
+
 vector<string> ASApi::asStringListToVector (const tibasStringList& stringList)
 {
     int size;

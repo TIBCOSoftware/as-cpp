@@ -25,7 +25,7 @@ Exception::Exception(const tibasError& error)
 {
     if (error != NULL)
     {
-        tibasError* clone = NULL;
+        tibasError* clone = new tibasError();
         AS_CALL(tibasError_Clone(error, clone));
         m_error.reset(clone, tibasError_Free);
     }

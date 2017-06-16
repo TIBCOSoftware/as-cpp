@@ -87,6 +87,13 @@ namespace ASApi
 
         SpaceResultList loadAll(const std::vector<Tuple>& valueList);
 
+        // Return old value.
+        Tuple update(const Tuple& keyTuple, const Tuple& tuple);
+        
+        Tuple update(const Tuple& keyTuple, const Tuple& tuple, const PutOptions& putOptions);
+        
+        void update(const std::string& filter);
+        
         SpaceDef getSpaceDef() const;
 
         std::string getMetaspaceName() const;
@@ -115,7 +122,7 @@ namespace ASApi
 
         void unlock(const Tuple& key, const UnlockOptions unlockOptions) const;
 
-        SpaceResultList unlock(const std::vector<Tuple>& keyList) const;
+        SpaceResultList unlockAll(const std::vector<Tuple>& keyList) const;
 
         Browser browse(const BrowserType& browserType, const BrowserDef& browserDef, const std::string& filter) const;
 
@@ -124,6 +131,8 @@ namespace ASApi
         Tuple get(const Tuple& keyTuple, const GetOptions& getOptions) const;
 
         SpaceResultList getAll(const std::vector<Tuple>& keyList) const;
+
+        SpaceResultList getAll(const std::vector<Tuple>& keyList, const GetOptions& getOptions) const;
 
         void listen(Listener& listener, const ListenerDef& listenerDef, const std::string& filter);
         

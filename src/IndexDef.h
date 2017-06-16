@@ -23,7 +23,7 @@ namespace ASApi
     public:
         IndexDef();
 
-        IndexDef(std::string& indexName, std::string& fieldNames);
+        IndexDef(const std::string& indexName, const std::string& fieldNames);
 
         ~IndexDef();
 
